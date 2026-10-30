@@ -77,15 +77,15 @@ Trois graphiques, chacun avec un rôle précis avant de modéliser.
 
 **Distribution des notes.** Elle montre que les notes se concentrent autour de 5 et 6 et que la classe « note ≥ 7 » est **minoritaire**. C'est ce qui justifie le choix des métriques en classification (section 5).
 
-![Distribution des notes](Resultats/donnees_distribution_notes.png)
+![Distribution des notes](Scripts/Resultats/donnees_distribution_notes.png)
 
 **Corrélations.** Elle montre quelles variables sont liées à la qualité, et surtout quelles variables sont **fortement corrélées entre elles** (par exemple `density`, `residual sugar` et `alcohol`). Cette collinéarité rend la descente de gradient lente, d'où le grand nombre d'itérations nécessaires.
 
-![Corrélations](Resultats/donnees_correlations.png)
+![Corrélations](Scripts/Resultats/donnees_correlations.png)
 
 **Caractéristiques selon la classe.** Elle montre quelles variables séparent vraiment les bons vins des autres. Plus les deux boîtes sont décalées, plus la variable est informative.
 
-![Caractéristiques selon la classe](Resultats/donnees_caracteristiques.png)
+![Caractéristiques selon la classe](Scripts/Resultats/donnees_caracteristiques.png)
 
 ---
 
@@ -112,31 +112,31 @@ Trois graphiques, chacun avec un rôle précis avant de modéliser.
 
 Pour cette recherche, le pas d'apprentissage est calculé automatiquement (`alpha = n / plus grande valeur propre de G`), ce qui reste stable quel que soit `r`. Le tableau donne un `r` **conseillé** : on le reporte ensuite à la main dans `Modeles_Regression.py` (si `r` change, revoir aussi les pas du noyau, ou les mettre à `None`).
 
-![Choix de r](Resultats/regression_choix_r.png)
+![Choix de r](Scripts/Resultats/regression_choix_r.png)
 
 ### Résultats (entraînement et validation)
 Le tableau compare la référence et les trois modèles. Le modèle retenu est surligné.
 
-![Tableau de validation](Resultats/regression_tableau_validation.png)
+![Tableau de validation](Scripts/Resultats/regression_tableau_validation.png)
 
 **Évolution du coût** pendant l'entraînement :
 
-![Coûts de régression](Resultats/regression_couts.png)
+![Coûts de régression](Scripts/Resultats/regression_couts.png)
 
 **Note réelle contre note prédite** (validation). Une prédiction exacte est sur la diagonale : on y voit si le modèle surestime les petites notes et sous-estime les grandes.
 
-![Réel vs prédit (validation)](Resultats/regression_reel_vs_predit_validation.png)
+![Réel vs prédit (validation)](Scripts/Resultats/regression_reel_vs_predit_validation.png)
 
 **Distribution des erreurs** (validation). Elle montre si les erreurs sont petites et si le modèle se trompe plutôt vers le haut ou vers le bas.
 
-![Erreurs (validation)](Resultats/regression_erreurs_validation.png)
+![Erreurs (validation)](Scripts/Resultats/regression_erreurs_validation.png)
 
 ### Évaluation finale sur le test
 Seuls la référence et le modèle choisi (noyau polynomial d = 3) sont évalués sur le test.
 
-![Tableau de test](Resultats/regression_tableau_test.png)
-![Réel vs prédit (test)](Resultats/regression_reel_vs_predit_test.png)
-![Erreurs (test)](Resultats/regression_erreurs_test.png)
+![Tableau de test](Scripts/Resultats/regression_tableau_test.png)
+![Réel vs prédit (test)](Scripts/Resultats/regression_reel_vs_predit_test.png)
+![Erreurs (test)](Scripts/Resultats/regression_erreurs_test.png)
 
 ---
 
@@ -160,21 +160,21 @@ Le modèle est donc choisi en regardant les quatre critères, mais **principalem
 
 **Modèle retenu : SVM à noyau gaussien (C = 5, gamma = 1).**
 
-![Tableau de validation de la classification](Resultats/classification_tableau_validation.png)
+![Tableau de validation de la classification](Scripts/Resultats/classification_tableau_validation.png)
 
 ### Matrice de confusion en validation
 Elle sert à ajuster `C` et `gamma` à la fin : elle montre combien de bons vins sont manqués (faux négatifs) et combien de vins moins bien notés sont sélectionnés à tort (faux positifs).
 
-![Matrice de confusion (validation)](Resultats/classification_matrice_confusion_validation.png)
+![Matrice de confusion (validation)](Scripts/Resultats/classification_matrice_confusion_validation.png)
 
 ### Évaluation finale sur le test
 Seuls la référence (classifieur majoritaire) et le modèle choisi sont évalués.
 
-![Tableau de test](Resultats/classification_tableau_test.png)
-![Matrice de confusion (test)](Resultats/classification_matrice_confusion_test.png)
+![Tableau de test](Scripts/Resultats/classification_tableau_test.png)
+![Matrice de confusion (test)](Scripts/Resultats/classification_matrice_confusion_test.png)
 
 ### Coût de la régression logistique
-![Coût logistique](Resultats/classification_couts.png)
+![Coût logistique](Scripts/Resultats/classification_couts.png)
 
 ---
 
@@ -192,8 +192,8 @@ Règles de mesure pour une comparaison équitable :
 - **Seul le temps des mises à jour est compté**, pas celui du calcul du coût.
 - Chaque boucle a une **limite d'époques** (plus de boucle infinie) ; le tableau indique si l'objectif est atteint.
 
-![Tableau d'optimisation](Resultats/optimisation_tableau.png)
-![Coût selon les époques et selon le temps](Resultats/optimisation_couts.png)
+![Tableau d'optimisation](Scripts/Resultats/optimisation_tableau.png)
+![Coût selon les époques et selon le temps](Scripts/Resultats/optimisation_couts.png)
 
 Le graphique de gauche montre quelle méthode progresse le plus **par passage sur les données**. Celui de droite montre laquelle atteint un coût donné **le plus vite en secondes**.
 
