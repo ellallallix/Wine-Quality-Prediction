@@ -1,0 +1,2 @@
+﻿Modèle;Accuracy;Precision;Recall;F1;Faux positifs;Faux négatifs
+SVM Gaussien (C = 5, gamma = 1);0.8168067226890756;0.6153846153846154;0.3225806451612903;0.42328042328042326;25;84
